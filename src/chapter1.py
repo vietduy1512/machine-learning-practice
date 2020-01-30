@@ -6,8 +6,8 @@ import sklearn
 # Load the data
 # oecd_bli = pd.read_csv("./datasets/oecd_bli_2015.csv", thousands=',')
 # gdp_per_capita = pd.read_csv("./datasets/gdp_per_capita.csv",thousands=',' ,delimiter='\t', encoding='latin1', na_values="n/a")
-oecd_bli = pd.read_csv("D:/MLPython/pythons/datasets/oecd_bli_2015.csv", thousands=',')
-gdp_per_capita = pd.read_csv("D:/MLPython/pythons/datasets/gdp_per_capita.csv",thousands=',' ,delimiter='\t', encoding='latin1', na_values="n/a")
+oecd_bli = pd.read_csv("./datasets/oecd_bli_2015.csv", thousands=',')
+gdp_per_capita = pd.read_csv("./datasets/gdp_per_capita.csv", thousands=',', delimiter='\t', encoding='latin1', na_values="n/a")
 
 # Prepare the data
 def prepare_country_stats(oecd_bli, gdp_per_capita):
@@ -47,4 +47,4 @@ print ('intercept:', lin_reg_model.intercept_)
 
 # Making Prediction
 X_new = [[22587]] # Cyprus' GDP per capita
-print(lin_reg_model.predict(X_new)) # outputs [[ 5.96242338]]
+print('Result of "Does Money Make People Happier?":', lin_reg_model.predict(X_new)) # outputs [[ 5.96242338]]
