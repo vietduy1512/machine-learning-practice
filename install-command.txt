@@ -1,0 +1,19 @@
+pip3 install virtualenv
+
+
+mkdir ml
+cd ml
+virtualenv env
+
+
+Set-ExecutionPolicy -ExecutionPolicy "Unrestricted"
+cd ml
+.\env\Scripts\activate
+
+
+pip3 install --upgrade jupyter matplotlib numpy pandas scipy scikit-learn tensorflow keras
+
+
+cd ml
+.\env\Scripts\activate
+jupyter notebook
