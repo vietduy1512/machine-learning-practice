@@ -462,7 +462,8 @@ GridSearchCV(cv=5, error_score='raise-deprecating',
     min_weight_fraction_leaf=0.0, n_estimators='warn', n_jobs=None,
     oob_score=False, random_state=None, verbose=0,
     warm_start=False),
-  fit_params=None, iid='warn', n_jobs=None,
+  # fit_params=None,
+  iid='warn', n_jobs=None,
   param_grid=[{'n_estimators': [3, 10, 30], 'max_features':
     [2, 4, 6, 8]}, {'bootstrap': [False], 'n_estimators': [3, 10],
     'max_features': [2, 3, 4]}],
@@ -477,6 +478,9 @@ cvres = grid_search.cv_results_
 for mean_score, params in zip(cvres["mean_test_score"], cvres["params"]):
   print('Score:' + str(np.sqrt(-mean_score)) + '. Params:' + str(params))
 
+### Fix for below
+encoder = OneHotEncoder(categories='auto')
+encoder.fit_transform(housing_cat_encoded.reshape(-1,1))
 # Analyzing The Best Mode
 feature_importances = grid_search.best_estimator_.feature_importances_
 print(feature_importances)
